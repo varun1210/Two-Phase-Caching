@@ -1,0 +1,14 @@
+1: Fill the Status register (As the processes come in)
+2: Fill the short term cache 
+	2.1) Calculate the average frequencies of the first 10 (f)
+	2.2) Populate the short term cache with the processes of frequencies f / 2 (by 	     rank)
+	2.3) If we can overpopulate, then take the highest ranked processes
+	2.4) If we cannot populate them then we have fill in the decreasing order of 	     	     frequencies till short term cache is full
+3: Fill the long term cache:
+	3.1) Iterate over all the short term processes and record all the next 	     	     processes.
+	     xi will be the process frequency * frequency of the first process.
+	     See if it crosses the threshold.
+	3.2) Add all the processes that cross over the threshold. 
+	3.3) If there is any space left over, just add the adjacent processes in the 	     	     list again
+
+	
