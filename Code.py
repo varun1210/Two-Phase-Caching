@@ -25,42 +25,6 @@ def fillRegisterStatus(t, cache):
     print("Reset complete. Register values after reset are:\n" + str(registerData) + "\n");
     overflow = fillShortTermCache();
     fillLongTermCache(regRequiredData, overflow);
-    print(longTermCache);
-
-"""
-def fillShortTermCache():
-    print("Short term cache resetting...");
-    cf = 0;
-    overflowList = [];
-    fillCount = 0;
-    currentRegisterSize = len(registerData);
-    for process in registerData:
-        cf += registerData[process];
-    averageFrequency = cf / currentRegisterSize;
-    print("The threshold frequency thus calculated is :" + str(averageFrequency));
-    for process in registerData:
-        if(registerData[process] > averageFrequency):
-            i = 0;
-            while((i < len(shortTermCache)) and (shortTermCache[i] != -1)):
-                i += 1;
-            fillCount += 1;
-            if(i >= len(shortTermCache)):
-                overflowList.append(process);
-            else:
-                shortTermCache[i] = process;
-                
-    if(fillCount > 5):
-       i = 0;
-       for process in overflowList:
-           longTermCache[i] = process;
-           i += 1;
-    elif(fillCount < 5):
-        #YOU ARE HERE AT THE TIME OF WRITING THIS CODE. WE ARE HANDLING THE CASE IN WHICH SHORT TERM CACHE HAS TO BE FILLED WITH
-        #THE REMAINING ITEMS BASED ON THE RANK OF THE REMAINING ITEMS.
-        cacheSet = 
-    
-    print("Short term cache has been reset. The new values are:\n" + str(shortTermCache) + "\n");
-"""
 
 def fillShortTermCache():
     print("Short term cache resetting...");
@@ -133,43 +97,7 @@ def fillLongTermCache(regReq, overflow):
                 return;               
             if(process[0] not in shortTermCache):
                 longTermCache.add(process[0]);
-               
-        
-               
                 
-               
-                   
-               
-                       
-      
-                    
-                     
-"""
-cf5Calculator = [0, 0, 0, 0, 0, 0, 0, 0];
-cf10Calculator = [0, 0, 0, 0, 0, 0, 0, 0];
-wb = Workbook();
-wb = load_workbook('D:\VIT Semesters\Fall Semester 2020-21\Projects\Storage\Storage Dataset.xlsx')
-ws = wb.active;
-for i in range(2, 2002):
-    ws['A' + str(i)].value = i - 1;
-
-for i in range(2, 2002):
-    ws['B' + str(i)].value = random.randint(1, 8);
-
-for i in range(2, 2002):
-    currVal = ws['B' + str(i)].value;
-    ws['C' + str(i)].value = cf5Calculator[currVal - 1] + 1;
-    cf5Calculator[currVal - 1] += 1;
-    ws['D' + str(i)].value = cf10Calculator[currVal - 1] + 1;
-    cf10Calculator[currVal - 1] += 1;
-    if((i - 1) % 5 == 0):
-        cf5Calculator = [0, 0, 0, 0, 0, 0, 0, 0];
-    if((i - 1) % 10 == 0):
-        cf10Calculator = [0, 0, 0, 0, 0, 0, 0, 0];
-wb.save('D:\VIT Semesters\Fall Semester 2020-21\Projects\Storage\Storage Dataset.xlsx');
-"""
-
-
 cacheData = pd.read_excel("D:\VIT Semesters\Fall Semester 2020-21\Projects\Storage\Storage Dataset.xlsx");
 fillRegisterStatus(90, cacheData);
 
